@@ -1,10 +1,10 @@
 FROM alpine:latest AS downloader
 
 RUN apk -U --no-cache add ca-certificates wget && \
-    VERSION=v1.1.2 && \
+    VERSION=v1.1.3 && \
     cd /tmp && \
     wget -q https://github.com/rancher/rke/releases/download/${VERSION}/rke_linux-amd64 && \
-    mv rke_linux-amd64 rke && \ 
+    mv rke_linux-amd64 rke && \
     chmod 755 /tmp/rke
 
 FROM gcr.io/distroless/static
