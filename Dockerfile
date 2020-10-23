@@ -1,7 +1,7 @@
 FROM alpine:latest AS downloader
 
 RUN apk -U --no-cache add ca-certificates wget && \
-    VERSION=v1.1.7 && \
+    VERSION=v1.1.9 && \
     cd /tmp && \
     wget -q https://github.com/rancher/rke/releases/download/${VERSION}/rke_linux-amd64 && \
     mv rke_linux-amd64 rke && \
