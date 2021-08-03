@@ -2,4 +2,4 @@
 
 RKE as Docker Container
 
-![](https://img.shields.io/docker/cloud/build/300481/rke?style=plastic)
+[![Docker Build](https://github.com/300481/rke/actions/workflows/on_push_tag.yaml/badge.svg)](https://github.com/300481/rke/actions/workflows/on_push_tag.yaml)
