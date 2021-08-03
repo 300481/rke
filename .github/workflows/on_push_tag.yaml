@@ -1,0 +1,20 @@
+name: On Push Tag
+
+on:
+  push:
+    tags:        
+      - [0-9]+.[0-9]+.[0-9]+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: build
+        run: docker build -t ghcr.io/300481/rke:${GITHUB_REF##*/} .
+      - name: login
+        env:
+          WEBSITE_TOKEN: ${{ secrets.WEBSITE_SECRET }}
+        run: echo ${RKE_REGISTRY_TOKEN} | docker login ghcr.io -u 300481 --password-stdin   
+      - name: push
+        run: docker push ghcr.io/300481/rke:${GITHUB_REF##*/}
