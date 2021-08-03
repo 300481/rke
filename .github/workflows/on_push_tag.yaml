@@ -14,7 +14,7 @@ jobs:
         run: docker build -t ghcr.io/300481/rke:${GITHUB_REF##*/} .
       - name: login
         env:
-          WEBSITE_TOKEN: ${{ secrets.WEBSITE_SECRET }}
+          RKE_REGISTRY_TOKEN: ${{ secrets.RKE_REGISTRY_TOKEN }}
         run: echo ${RKE_REGISTRY_TOKEN} | docker login ghcr.io -u 300481 --password-stdin   
       - name: push
         run: docker push ghcr.io/300481/rke:${GITHUB_REF##*/}
